@@ -1,3 +1,23 @@
+<?php
+if($_GET['id']){
+include 'conn.php';
+
+$sql = "SELECT * from Social_Category_Details where id=".$_GET['id'];
+$result = $conn->query($sql);
+
+$row=mysqli_fetch_row($result);
+
+//echo "<pre>";
+//print_r($row);
+
+
+}else{
+
+  echo "enter id.";
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,7 +34,8 @@
   margin-bottom: 40px;
 }
  </style>
-       <title>JavaScript Pie Chart </title>
+
+       <title>JavaScript Pie Chart</title>
       <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
       <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -22,29 +43,17 @@
   <body>
     <div id="container" style="width: 100%; height: 100%"></div>
 
-<?php
-include 'conn.php';
-
-$sql = "SELECT * from Social_Category_Details where id=1";
-$result = $conn->query($sql);
-
-$row=mysqli_fetch_row($result);
-
-echo "<pre>";
-print_r($row);
-
-?>
 
     <script>
   anychart.onDocumentReady(function() {
 
     // set the data
       var data = [
-        {x: "BC", value: 55553265},
-        {x: "OC", value: 40929319},
-        {x: "SC", value: 26032248},
-        {x: "ST", value: 6032248},
-        {x: "Others", value: 5032248},
+        {x: "BC", value: <?php echo $row[1]; ?>},
+        {x: "OC", value: <?php echo $row[2]; ?>},
+        {x: "SC", value: <?php echo $row[3]; ?>},
+        {x: "ST", value: <?php echo $row[4]; ?>},
+        {x: "Others", value: <?php echo $row[5]; ?>},
         
       ];
 
@@ -67,6 +76,7 @@ print_r($row);
     chart.draw();
 
   });
+
 </script>
   <div class="chart-list">
         <p>41.6% BC</p>
