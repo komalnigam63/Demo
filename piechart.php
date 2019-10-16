@@ -16,7 +16,6 @@ $row=mysqli_fetch_row($result);
   echo "enter id.";
 }
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,8 +52,7 @@ $row=mysqli_fetch_row($result);
         {x: "OC", value: <?php echo $row[2]; ?>},
         {x: "SC", value: <?php echo $row[3]; ?>},
         {x: "ST", value: <?php echo $row[4]; ?>},
-        {x: "Others", value: <?php echo $row[5]; ?>},
-        
+        {x: "Others", value: <?php echo $row[5]; ?>},  
       ];
 
       // create the chart
