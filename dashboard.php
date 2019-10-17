@@ -96,7 +96,6 @@ foreach ($result as $value) { ?>
     <td><?php echo $value['gender'];?> </td>
     <td><?php echo $value['hobbies'];?> </td>
     <td><?php echo $value['address'];?> </td>
-    
     <td><?php echo $value['classes']; ?> </td>  
     </tr>
 
