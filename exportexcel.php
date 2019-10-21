@@ -1,85 +1,62 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbName="komal";
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbName);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-//echo "Connected successfully";
-
-?>
 <html>
 <head>
-
-	<script  type="text/javascript">
-$(document).ready(function() {
-jQuery('#export-to-csv').bind("click", function() {
-var target = $(this).attr('id');
-switch(target) {
-	case 'export-to-csv' :
-	$('#hidden-type').val(target);
-	//alert($('#hidden-type').val());
-	$('#export-form').submit();
-	$('#hidden-type').val('');
-	break
-}
-});
-    });
-</script>
 <style type="text/css">
 
 .table{
 	border: 1px solid;
-	text-align: center;
 }
-th, td {
-  padding: 7px;
-  text-align: center;    
+td {
+  padding: 10px;  
 }
 </style>
+<link href="export_style.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
+<div id="wrapper">
 
-<h1>Export to php</h1>
- <center><form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" id="export-form">
-						<input type="hidden" value='' id='hidden-type' name='ExportType'/>
-					  </center></form>
-                  <table id="" class="table table-striped table-bordered">
-                    <tr>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Priority</th>
-                        <th>Salary</th>
-                  </tr>
-                <tbody>
-                 <tr>
-                 	<td>shelesh</td>
-                 	<td>good</td>
-                 	<td>high</td>
-                 	<td>12000</td>
-                 </tr>
-                 <tr>
-                 	<td>goli</td>
-                 	<td>bad</td>
-                 	<td>low</td>
-                 	<td>3000</td>
-                 </tr>
-                 <tr>
-                 	<td>mohit</td>
-                 	<td>good</td>
-                 	<td>high</td>
-                 	<td>45000</td>
-                 </tr>
-				 
-                </tbody>
-              </table>
-              <br><br>          
-                  <input type="submit" name="submit" value="Export">
-          </body>
-          </html>
+<div id="table_div">
+<form method="post" action="export_data.php">
+	<table>
+<table align=center cellspacing=5>
+<tr>
+<td><input type="text" name="name" placeholder="Enter Name"></td>
+</tr>
+<tr>
+<td><input type="text" name="skills " placeholder="Enter skills"></td>
+</tr>
+<tr>
+<td><input type="text" name="address" placeholder="Enter Address"></td>
+</tr>
+<tr>
+<td><input type="text" name="gender" placeholder="Enter Gender"></td>
+</tr>
+<tr>
+<td><input type="text" name="designation" placeholder="Enter designation"></td>
+</tr>
+<tr>
+<td><input type="text" name="age" placeholder="Enter Age"></td>
+</tr>
+<tr>
+<td><input type="text" name="image" placeholder="Enter image"></td>
+</tr>
+
+
+</table>
+<center><input type="submit" name="save" value="submit"></center>
+</table>
+</form>
+
+<center><form action="export_file.php" method="post">
+	<input type="submit" name="export_data" value="EXPORT TO EXCEL">
+</center></form>
+<form class="form-inline" method="post" action="generate_pdf.php">
+<button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>
+Generate PDF</button>
+</form>
+
+
+</div>
+</body>
+</html>
               

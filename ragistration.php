@@ -115,7 +115,7 @@ th, td {
   <tr>
     <td colspan="2" align="center">
   <input type="submit" name="submit" value="Register page">
-  <a href="student-login.php">Login</a>
+  <a href="adminlogin.php">Login</a>
   </td>
   </tr>
   <!-- <table class="table">
